@@ -78,7 +78,10 @@ WSGI_APPLICATION = 'gestionpacientes.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url()
+    'default': dj_database_url(
+        default='postgresql://djangocrud_y17h_user:y3p3nHLQeKv1aRjIxDj8CY69VtkRD31A@dpg-cpqclaqju9rs73a2hp30-a/djangocrud_y17h',
+        conn_max_age=600
+    )
 }
 
 
