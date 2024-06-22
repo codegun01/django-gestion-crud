@@ -14,6 +14,7 @@ from pathlib import Path
 import dj_database_url
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -78,11 +79,13 @@ WSGI_APPLICATION = 'gestionpacientes.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url(
-        default='postgresql://djangocrud_y17h_user:y3p3nHLQeKv1aRjIxDj8CY69VtkRD31A@dpg-cpqclaqju9rs73a2hp30-a/djangocrud_y17h',
-        conn_max_age=600
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL','postgresql://djangocrud_y17h_user:y3p3nHLQeKv1aRjIxDj8CY69VtkRD31A@dpg-cpqclaqju9rs73a2hp30-a/djangocrud_y17h')
+
     )
 }
+
+
 
 
 # Password validation
